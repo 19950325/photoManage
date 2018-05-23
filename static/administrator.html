@@ -1,0 +1,138 @@
+<html>
+<head>
+	<title>administrator</title>
+	<link rel="stylesheet" type="text/css" href="plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+	<style type="text/css" media="screen">
+		body{
+			padding:0px;
+			margin: 0px;
+		}
+		#backgroundImg{
+
+			position: absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+
+			width:100%;
+			height: 100%;
+			
+			background:url(images/3.jpg);
+		}
+
+		#backgroundImg #container{
+
+			position: absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+
+			width:80%;
+			height:80%;
+
+			border:1px solid #999999;
+		}
+
+		#backgroundImg #container #head{
+			width:100%;
+			height:8%;
+		}
+
+		#backgroundImg #container #head form{
+			background-color: white;
+		}	
+
+		#head form span{
+			width:1%;
+			font-size:14px;
+			margin-left:1%;
+		}
+
+		#head form input{
+			width:96%;
+			height: 100%;
+			border:none;
+			outline:none;
+			margin-left:0.5%;
+		}
+
+		#backgroundImg #container #body{
+			width:100%;
+			height:92%;
+			overFlow-y: auto;  
+		}
+
+		#body table{
+			width:100%;
+			height:100%;
+			table-layout:fixed;
+		}
+
+		#body table td{
+			width:33.3%;
+			height:120px;
+
+			text-align: center;
+			background-color: white;
+		}
+		#body table tr.thead td{
+			background-color:#dadada;
+		}
+
+		.userimgs{
+			overflow-x:auto;
+			white-space: nowrap;
+		}
+
+		.userimgs img{
+
+			display: inline-block;
+
+			width:40%;
+			height: 80%;
+			
+			border:1px solid #757575;
+			
+			margin-left:10px;
+			margin-right:10px;
+			vertical-align: middle;
+		}
+		td button{
+			width:100%;
+			height:50%;
+			background-color: white;
+			border:1px solid #757575;
+		}
+	</style>
+</head>
+<body>
+	<div id="backgroundImg">
+		<div id="container">
+			<div id="head">
+				<form>
+					<span class="glyphicon glyphicon-search" style="color: rgb(114, 115, 113);"></span>
+					<input type="text" placeholder="请输入要查找资料的用户名........."/ id="search">
+				</form>		
+			</div>
+			<div id="body">
+				<table border="1" frame="above">
+					<tbody id="tbody">
+						<tr class="thead">
+							<td>用户名</td>
+							<td>过往上传照片</td>
+							<td>操作</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="plugins/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/administrator.js"></script>
+</body>
+</html>

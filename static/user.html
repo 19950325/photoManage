@@ -1,0 +1,243 @@
+<html>
+<head>
+	<title>用户页面</title>
+
+	<link rel="stylesheet" type="text/css" href="plugins/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<style type="text/css" media="screen">
+	body{
+		border:0px;
+		margin:0px;
+	}
+
+	body #backgroundImg {
+		position: absolute;
+		left:50%;
+		top:50%;
+		transform:translate(-50%,-50%);	
+
+
+		width:100%;
+		height:100%;
+
+		border:0px;
+		margin:0px;
+
+
+		background-image:url(images/3.jpg);
+	}
+
+	#container{
+		position: absolute;
+		left:50%;
+		top:48%;
+		transform:translate(-50%,-50%);	
+
+
+		width:80%;
+		height:90%;
+
+		border:0px;
+		margin:0px;
+		padding: 0px;
+	}
+
+	#container #head{	
+
+		width:100%;
+		height:20%;
+		padding:4px 0px 6px 0px;
+		margin-bottom: 10px;
+
+		overFlow-x: scroll;
+		overFlow-y: hidden;   
+		white-space:nowrap;
+		text-align:justify;
+
+		background-color:rgba(255,255,255,0.8);
+	}
+	#container #head img{
+		margin-left: 10px;
+		margin-right: 10px;
+
+		width:25%;
+		height:100%;
+		border:1px solid #757575;
+
+		display:inline-block;
+		text-align:center;
+		vertical-align: center;
+	}
+
+	#container #body{
+		width:100%;
+		height:70%;
+
+		background-color: white;
+		padding: 0px;
+		margin: 10px 0px 10px 0px;
+	}
+
+	#container #body #canvas{
+		width:1093px;
+		height:400px;
+	}
+	
+	#container #foot{
+		width:100%;
+		height:10%;
+
+		padding: 0px;
+		margin-top:10px;
+
+		display: -webkit-flex; /* Safari */
+		display:flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	#container #foot .active{
+		background: linear-gradient(#bdbbbb,white,#bdbbbb);
+		border:none;
+		box-shadow: 1px 1px 1px #999999;
+
+	}
+
+	#container #foot .dropup{
+		width:13%;
+		height:90%;
+	}
+
+	#container #foot .dropup .dropdown-backdrop{
+		height:94%;
+	}
+
+	#container #foot .dropup>.button{
+		width:100%;
+		height:100%;
+	}
+
+	#container #foot .dropup .dropdown-menu{
+		min-width:100%;
+		height:250%;
+		background-color:rgba(255,255,255);
+	}
+
+	#container #foot .dropup .dropdown-menu>.button{
+		width:100%;
+		height:45%;
+		margin:1px 0px 5px 0px;
+	}
+
+	#container #foot .dropup .dropdown-menu>.filter{
+		width: 47%;
+		height: 30%;
+		margin-left:1%;
+	}
+
+	#container #foot .dropup .dropdown-menu>.button:last-child{
+		margin-top:0px;
+	}
+
+	#container #foot .dropup .dropdown-menu#rgb{
+		min-width:100%;
+		height:300%;
+		padding:6% 0px 2% 0px;
+	}
+
+	#container #foot .dropup .dropdown-menu#rotat{
+		min-width:100%;
+		height:150%;
+		padding:6% 0px 2% 0px;
+	}
+
+	#container #foot .dropup .dropdown-menu#filter{
+		min-width:100%;
+		height:350%;
+		padding:6% 0px 2% 0px;
+	}
+
+	#container #foot .dropup input[type=range]{
+		width:100%;
+	}
+	
+
+	#container #foot .dropup .button{
+		width:100%;
+		height:100%;
+	}
+
+	#container #foot>.button{
+		width:13%;
+		height:90%;
+	}
+	</style>
+</head>
+<body>
+	<div id="backgroundImg">
+		<div id="container">
+			<div id="head">
+			</div>
+			<div id="body">
+				<canvas id="canvas" width="1093" height="400">
+				</canvas>
+			</div>
+			<div id="foot">
+				<div class="dropup">
+					<button class="button dropdown-toggle" data-toggle="dropdown">导入/导出<span class='caret'></span></button>
+					<div class="dropdown-menu">
+						<button class="button" id="leadIn">导入图片</button>
+						<button class="button" id="leadOut">导出图片</button>
+					</div>
+				</div>
+
+				<button class="button" id="upload">上传图片</button>
+				<button class="button" id="cut">裁剪</button>
+				<button class="button" id="doodle">涂鸦</button>
+
+				<div class="dropup">
+					<button class="button dropdown-toggle" id="rotateBtn" data-toggle="dropdown">
+					旋转</button>
+					<div class="dropdown-menu" id="rotat">
+						<span style="float:left">-180°</span><span style="float:right">180°</span>
+						<input type="range" id="rotate" min="-180" max="180" value="0" step="1" />
+					</div>
+				</div>
+
+				<div class="dropup">
+					<button class="button dropdown-toggle" data-toggle="dropdown" id="rgbBtn">
+					RGB颜色调节</button>
+					<div class="dropdown-menu" id="rgb">
+						R<input type="range"/ id="rVal" min="0" max="255" value="0" step="1">
+						G<input type="range"/ id="gVal" min="0" max="255" value="0" step="1">
+						B<input type="range"/ id="bVal" min="0" max="255" value="0" step="1">
+					</div>
+				</div>
+
+				<div class="dropup">
+					<button class="button dropdown-toggle" data-toggle="dropdown" id="filterBtn">
+					滤镜</button>
+					<div class="dropdown-menu" id="filter">
+						<button class="button filter" id="greyEffect">灰度</button>
+						<button class="button filter" id="sepia">棕褐</button>
+						<button class="button filter" id="sketch">素描</button>
+						<button class="button filter" id="mirror">镜像</button>
+						<button class="button filter" id="brighten">亮度+5</button>
+						<button class="button filter" id="darken">亮度-5</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript" src="plugins/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/tool.js"></script>
+	<script type="text/javascript" src="js/canvasmodal.js"></script>
+	<script type="text/javascript" src="js/users.js"></script>
+</body>
+</html>

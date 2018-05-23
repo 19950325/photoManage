@@ -1,0 +1,141 @@
+<html>
+<head>
+	<title></title>
+	<meta name=”viewport” content=”width=device-width, initial-scale=1″ />
+	<style type="text/css" media="screen">
+		body{
+			border:0px;
+			margin:0px;
+		}
+		#backgroundImg{
+			position: absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);	
+
+
+			width:100%;
+			height:100%;
+
+			border:0px;
+			margin:0px;
+
+
+			background-image:url(images/1.jpg);
+		}
+
+		#container{
+			position: absolute;
+			top:20%;
+			left:60%;
+
+			width:300px;
+			height:300px;
+
+			background-color:rgba(211,208,203,0.60);
+			border:1px solid #a1a1a1;
+		}
+
+		#container .input:-webkit-autofill{ 
+			-webkit-box-shadow:0 0 0px 1000px #e5e5e5 inset;
+		}
+
+		#container .input{
+			width:200px;
+			height:50px;
+
+			align-items:center;
+			padding-left: 10px;
+			outline:none;
+
+			background-color: #e5e5e5;
+			border:1px solid #e5e5e5;
+		}
+
+		#container input#user{
+			position: absolute;
+			left:50%;
+			top:25%;
+			transform:translate(-50%,-50%);	
+		}
+
+		#container input#password{
+			position: absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+		}
+
+		#container button.button{
+			width:80px;
+			height:50px;
+
+			z-index: 9;
+			-webkit-transition: border 1s linear;
+			-moz-transition: border 1s linear;
+			-o-transition: border 1s linear;
+			transition: border 1s linear;
+
+			outline:none;
+			border:2px solid #e5e5e5;
+			background-color: #e5e5e5;
+			color:#4e4e4e;
+		}
+		#container button.button:hover{
+			border:0px;
+		}
+
+		/*button-helper类，帮助实现button的transition+gradient颜色渐变*/
+		#container button.button .button-helper{
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+
+			
+			background: -webkit-radial-gradient(#ffffff, #a1a1a1); /* Safari 5.1 - 6.0 */
+			background: -o-radial-gradient(#ffffff, #a1a1a1); /* Opera 11.6 - 12.0 */
+			background: -moz-radial-gradient(#ffffff, #a1a1a1); /* Firefox 3.6 - 15 */
+			background: radial-gradient(#ffffff, #a1a1a1); /* 标准的语法 */
+			-webkit-transition: opacity 1s linear;
+			-moz-transition: opacity 1s linear;
+			-o-transition: opacity 1s linear;
+			transition: opacity 1s linear;
+		}
+		#container button.button:hover .button-helper {
+		  	opacity:1;
+		}
+
+		#container button#land{
+			position: absolute;
+			left:30%;
+			top:75%;
+			transform:translate(-50%,-50%);
+		}
+
+		#container button#register{
+			position: absolute;
+			left:70%;
+			top:75%;
+			transform:translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<div id="backgroundImg">
+		<div id="container">
+			<input type="text" placeholder="请输入用户名" class="input" id="user" />
+			<input type="password" placeholder="请输入密码" class="input" id="password" />
+			<button id="land" class="button"><span class="button-helper"></span>登陆</button>
+			<button id="register" class="button"><span class="button-helper"></span>注册</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="plugins/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/indexlogin.js"></script>
+</body>
+</html>
